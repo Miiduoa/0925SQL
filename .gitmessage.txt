@@ -1,0 +1,8 @@
+<JIRA-KEY> Short, imperative summary
+
+Context
+- What and why
+
+Notes
+- Include Jira key in the first line (e.g., PROJ-123)
+
