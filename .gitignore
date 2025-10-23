@@ -1,0 +1,2 @@
+# Ignore local SQLite DB in repo root
+/Student.db
