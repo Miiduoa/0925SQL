@@ -1,2 +1,6 @@
-# Ignore local SQLite DB in repo root
-/Student.db
+*.db
+__pycache__/
+*.pyc
+.venv/
+.idea/
+.DS_Store

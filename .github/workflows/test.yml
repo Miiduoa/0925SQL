@@ -1,0 +1,22 @@
+name: sql-test
+
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: sql-mart-test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sqlite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/check.py
+      - run: python scripts/build_db.py /tmp/analytics.db
+      - run: python scripts/run_query.py /tmp/analytics.db queries/monthly_revenue.sql
